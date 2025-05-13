@@ -4431,6 +4431,29 @@ pre[class*="language-"] {
 	margin: 35px 0 15px 0;
 	padding-top: 0
 }
+.tpa-and-insurance-sec .list-style1 li {
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.tpa-and-insurance-sec .list-style1 li a{
+   font-size:14px;
+	 font-weight:600;
+	 letter-spacing: 0.8px;
+}
+
+.menu_area-light .navbar-nav>li>a:hover{
+	color:#34c5a1;
+	transition:0.3s ease-in-out;
+}
+.team-single-sec .card-image{
+	width:150px;
+	height:150px;
+	margin:auto;
+}
+.team-single-sec .card-image img{
+	width:100%;
+	height:100%;
+}
 
 .html-code {
 	background-color: #fbfbfb;

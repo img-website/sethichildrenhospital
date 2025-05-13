@@ -214,10 +214,7 @@
                                 </div>
                                 <div class="quform-loading-wrap"><span class="quform-loading"></span></div>
                             </div>
-                            
-
                         </div>
-
                     </div>
                 </form>
             </div>
@@ -228,10 +225,10 @@
         ================================================== -->
         <section class="page-title-section bg-img cover-background top-position1 dark-overlay" data-overlay-dark="7" data-background="img/bg/page-title.jpg">
             <div class="container">
-                <h1>Our Services</h1>
+                <h1>Contact Us</h1>
                 <ul class="pagetitle-breadcrumb">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="#!">Our Services</a></li>
+                    <li><a href="#!">Contact Us</a></li>
                 </ul>
             </div>
             <div class="d-inline-block p-3 rounded-circle bg-primary position-absolute z-index-1 top-35 right-20 ani-top-bottom"></div>
@@ -240,154 +237,171 @@
             <img src="img/content/shape-03.png" class="position-absolute left bottom-0 z-index-3 ani-left-right d-none d-sm-block" alt="...">
         </section>
 
-       <!-- SERVICES
+        <!-- CONTACT FORM
         ================================================== -->
-        <section>
+        <section class="pb-5">
             <div class="container">
-                <div class="row mt-n1-9">
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="200ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service-11.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="vaccination.html" >Super speciality Clinics</a></h3>
-                                <a href="vaccination.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
-                            </div>
+                <div class="row">
+                    <div class="col-xl-6 mb-1-9 mb-xl-0 wow fadeIn" data-wow-delay="200ms">
+                        <div class="bg-light p-1-9 rounded">
+                            <form class="contact quform" action="quform/contact.php" method="post" enctype="multipart/form-data" onclick="">
+                                <div class="quform-elements">
+                                    <div class="row">
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="name">Your Name <span class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="name" type="text" name="name" placeholder="Your name here" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="email">Your Email <span class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="email" type="text" name="email" placeholder="Your email here" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="subject">Your Subject <span class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="subject" type="text" name="subject" placeholder="Your subject here" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Text input element -->
+                                        <div class="col-md-6">
+                                            <div class="quform-element form-group">
+                                                <label for="phone">Contact Number</label>
+                                                <div class="quform-input">
+                                                    <input class="form-control" id="phone" type="text" name="phone" placeholder="Your phone here" />
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Text input element -->
+
+                                        <!-- Begin Textarea element -->
+                                        <div class="col-md-12">
+                                            <div class="quform-element form-group">
+                                                <label for="message">Message <span class="quform-required">*</span></label>
+                                                <div class="quform-input">
+                                                    <textarea class="form-control h-100" id="message" name="message" rows="3" placeholder="Tell us a few words"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Textarea element -->
+
+                                        <!-- Begin Captcha element -->
+                                        <div class="col-md-12">
+                                            <div class="quform-element">
+                                                <div class="form-group">
+                                                    <div class="quform-input">
+                                                        <input class="form-control" id="type_the_word" type="text" name="type_the_word" placeholder="Type the below word" />
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <div class="quform-captcha">
+                                                        <div class="quform-captcha-inner">
+                                                            <img src="quform/images/captcha/courier-new-light.png" alt="...">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <!-- End Captcha element -->
+
+                                        <!-- Begin Submit button -->
+                                        <div class="col-md-12">
+                                            <div class="quform-submit-inner">
+                                                <button class="butn secondary" type="submit"><span>Send Message</span></button>
+                                            </div>
+                                            <div class="quform-loading-wrap text-start"><span class="quform-loading"></span></div>
+                                        </div>
+                                        <!-- End Submit button -->
+
+                                    </div>
+                                </div>
+                            </form>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="300ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service-12.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="cardiology.html" >Pediatric Intensive Care</a></h3>
-                                <a href="cardiology.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="400ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service13.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="family-physician.html" >Neonatology services</a></h3>
-                                <a href="family-physician.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="500ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service14.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="emergency-care.html" >X-Ray and Lab Services</a></h3>
-                                <a href="emergency-care.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="600ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service15.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="expert-surgeon.html" >Vaccination Services</a></h3>
-                                <a href="expert-surgeon.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mt-1-9 wow fadeIn" data-wow-delay="700ms">
-                        <div class="card border-0 bg-transparent border-radius-10 card-style01">
-                            <img src="img/services/service16.jpg" class="border-radius-10" alt="...">
-                            <div class="card-body text-center">
-                                <h3 class="h4 mb-2"><a href="operation-theatre.html" >Emergency services</a></h3>
-                                <a href="operation-theatre.html" class="text-primary">Read more<i class="fas fa-arrow-right small align-middle ms-2"></i></a>
+                    <div class="col-xl-6 wow fadeIn" data-wow-delay="400ms">
+                        <div class="ps-xl-1-9">
+                            <div class="position-relative z-index-9">
+                                <span class="text-secondary fw-bold d-block mb-2">-- Contact Us --</span>
+                                <h2 class="h1 mb-1-9">Find us here. Make real results happen.</h2>
+                                <div class="row">
+                                    <div class="col-md-12 mb-1-9 mb-md-0">
+                                        <div class="bg-dark-blue p-1-9 rounded">
+                                            <!-- <h3 class="text-white h4 mb-4">Opening Hours</h3>
+                                            <ul class="mb-0 footer-list-style1">
+                                                <li><span>Monday </span><span class="float-end">8:00 - 21:00</span></li>
+                                                <li><span>Tue-Sat </span><span class="float-end">9:00 - 21:00</span></li>
+                                                <li><span>Sunday </span><span class="float-end">Closed</span></li>
+                                            </ul> -->
+                                            <div class="d-flex mb-1-9">
+                                            <div class="flex-shrink-0">
+                                                <i class="fa fa-phone text-secondary fs-3"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <span class="mb-1 text-white d-block">+91-144-2701321, +91-144-2335565</span>
+                                                <span class="text-white d-block ">+91-144-2701817</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex mb-1-9">
+                                            <div class="flex-shrink-0">
+                                                <i class="far fa-envelope-open text-secondary fs-3"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <span class="d-block mb-1 text-white">sethichildrenhospital@gmail.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex mb-1-9">
+                                            <div class="flex-shrink-0">
+                                                <i class="far fa-envelope-open text-secondary fs-3"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <span class="d-block mb-1 text-white">Fax: +91-144-2335565</span>
+                                            </div>
+                                        </div>
+                                        <div class="d-flex">
+                                            <div class="flex-shrink-0">
+                                                <i class="fas fa-map-marker-alt text-secondary fs-3"></i>
+                                            </div>
+                                            <div class="flex-grow-1 ms-3">
+                                                <address class="d-block mb-0 text-white">19, Lajpat nagar, vijay mandir road, alwar</address>
+                                            </div>
+                                        </div>  
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
+
             </div>
         </section>
 
-
-        <!-- PROCESS
+        <!-- MAP
         ================================================== -->
         <section class="pt-0">
             <div class="container">
-                <div class="text-center mb-5 wow fadeIn" data-wow-delay="100ms">
-                    <span class="text-secondary display-28 fw-bold d-block mb-2">-- Our Process --</span>
-                    <h2 class="mb-0 h1">Our Workig Best Process</h2>
-                </div>
-                <div class="row process-style01 mt-n1-9 d-flex align-items-lg-stretch">
-                    <div class="col-md-6 col-lg-3">
-                        <div class="text-center px-xxl-1-9 process-block">
-                            <div class="position-relative py-4 px-5">
-                                <img src="img/content/process-02.jpg" class="rounded-circle" alt="...">
-                                <span class="process-num">01</span>
-                            </div>
-                            <h3 class="h4 mb-3">Emergency Care</h3>
-                            <p class="mb-0">There are many variations of passages Lorem Ipsum available</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="text-center px-xxl-1-9 process-block">
-                            <div class="position-relative py-4 px-5">
-                                <img src="img/content/process-03.jpg" class="rounded-circle" alt="...">
-                                <span class="process-num">02</span>
-                            </div>
-                            <h3 class="h4 mb-3">Operation Theatre</h3>
-                            <p class="mb-0">There are many variations of passages Lorem Ipsum available</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="text-center px-xxl-1-9 process-block ">
-                            <div class="position-relative py-4 px-5">
-                                <img src="img/content/process-04.jpg" class="rounded-circle" alt="...">
-                                <span class="process-num">03</span>
-                            </div>
-                            <h3 class="h4 mb-3">Blood Test</h3>
-                            <p class="mb-0">There are many variations of passages Lorem Ipsum available</p>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <div class="text-center px-xxl-1-9 process-block">
-                            <div class="position-relative py-4 px-5">
-                                <img src="img/content/process-05.jpg" class="rounded-circle" alt="...">
-                                <span class="process-num">04</span>
-                            </div>
-                            <h3 class="h4 mb-3">Outdoor Checkup</h3>
-                            <p class="mb-0">There are many variations of passages Lorem Ipsum available</p>
-                        </div>
-                    </div>
-                </div>
+                <iframe class="map border-radius-10" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3536.7257383944448!2d76.61155277453042!3d27.57102103149276!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3972998fa7e65df3%3A0x6f1fb5f786b8d895!2sSethi%20Children%20Hospital%20-%20Best%20Pediatric%20Hospital%20in%20Alwar!5e0!3m2!1sen!2sus!4v1747136490254!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
             </div>
         </section>
 
-        <!-- VIDEO
-        ================================================== -->
-        <section class="parallax cover-background parallax-video" data-overlay-dark="3" data-background="img/bg/bg-08.jpg">
-            <div class="story-video z-index-3 position-relative text-center">
-                <a class="video video_btn bg-secondary" href="https://www.youtube.com/watch?v=WX34STX0Zqw">
-                    <i class="fa fa-play"></i>
-                </a>
-            </div>
-        </section>
-
-        <!-- CONTACT
-        ================================================== -->
-        <section class="pt-0 pb-0 mt-n10 bg-transparent">
-            <div class="row">
-                <div class="col-lg-1 col-xl-2">
-                </div>
-                <div class="col-lg-11 col-xl-10">
-                    <div class="bg-img px-1-9 px-sm-6 px-lg-9 py-6 py-sm-8 z-index-3 cover-background border-radius-start-10 bg-primary" data-background="img/bg/bg-09.png">
-                        <div class="row align-items-center justify-content-between">
-                            <div class="col-lg-7 col-xxl-6 mb-4 mb-lg-0">
-                                <h2 class="h1 text-white mb-0">Make An Appointment To Get Service</h2>
-                            </div>
-                            <div class="col-lg-5 col-xxl-5 offset-xxl-1 w-auto">
-                                <a href="contact.html" class="butn secondary white-hover">Request An Appointment</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-     
         <!-- FOOTER
         ================================================== -->
         <footer class="bg-img position-relative cover-background dark-overlay" data-overlay-dark="9" data-background="img/bg/bg-10.jpg">
