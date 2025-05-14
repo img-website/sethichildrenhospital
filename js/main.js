@@ -22,3 +22,24 @@
       link.parentElement.classList.add('active');
     }
   });
+  
+ $('.team-carousel').owlCarousel({
+        loop:false,
+        margin:20,
+        autoplay:true,
+        dots: false,
+        autoplayTimeout:1000,
+        nav:false,
+        responsive:{
+        0:{
+            items:1
+        },
+        600:{
+            items:3
+        },
+        1000:{
+            items:3
+        }
+        }
+    })
+    
