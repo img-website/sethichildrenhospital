@@ -92,7 +92,7 @@ p{
 }
 
 .bg-secondary {
-	background-color: #00a650; !important
+	background-color: #00a650!important
 }
 
 .bg-dark-blue {
@@ -714,7 +714,19 @@ p{
 }
 .vaccintaion-desc p{
 		font-size:18px;
-	}
+}
+@media screen and (max-width: 991px) {
+  .header-style1 .navbar-default {
+        -webkit-box-shadow: none;
+        -ms-box-shadow: none;
+        box-shadow: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.35);
+        position: fixed;
+        top: 0px;
+        width: 100%;
+        background: #ffff;
+    }
+}
 
 @media screen and (max-width: 991px) {
 	.banner-shape-01 {
@@ -1157,7 +1169,7 @@ p{
 
 @media screen and (max-width: 991px) {
 	.page-title-section {
-		padding: 125px 0 0 0
+		padding: 210px 0 0 0
 	}
 
 	.page-title-section h1 {
@@ -1172,7 +1184,7 @@ p{
 
 @media screen and (max-width: 767px) {
 	.page-title-section {
-		padding: 125px 0 0 0
+		padding: 230px 0 0 0;
 	}
 
 	.page-title-section h1 {
@@ -1190,6 +1202,9 @@ p{
 		font-size: 34px;
 		line-height: 36px
 	}
+  .top-position1 {
+		margin-top:0px;
+  }
 }
 
 .top-position2 {
