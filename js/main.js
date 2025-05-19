@@ -16,12 +16,13 @@
   });
   
  $('.team-carousel').owlCarousel({
-        loop:false,
+        loop:true,
         margin:20,
         autoplay:true,
         dots: false,
         autoplayTimeout:1000,
         nav:false,
+        autoHeight: true,
         responsive:{
         0:{
             items:1
