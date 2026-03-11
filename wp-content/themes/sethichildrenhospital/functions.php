@@ -22,6 +22,9 @@ require_once SCH_THEME_DIR . '/inc/widgets.php';
 // ── Navigation ──
 require_once SCH_THEME_DIR . '/inc/class-sch-walker-nav.php';
 
+// ── Contact form (wp_mail / WP Mail SMTP) ──
+require_once SCH_THEME_DIR . '/inc/contact-form-handler.php';
+
 // ── ACF Options & Fields ──
 require_once SCH_THEME_DIR . '/inc/acf-options.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-header.php';
@@ -39,3 +42,4 @@ require_once SCH_THEME_DIR . '/inc/acf-fields-picu.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-vaccination-services.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-xray-lab.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-emergency-services.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-contact-us.php';
