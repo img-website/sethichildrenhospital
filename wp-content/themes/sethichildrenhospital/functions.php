@@ -32,3 +32,4 @@ require_once SCH_THEME_DIR . '/inc/acf-fields-services.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-doctors.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-vaccination.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-health-info.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-insurance.php';
