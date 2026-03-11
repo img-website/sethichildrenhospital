@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth lg:text-[1vw]">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sethi Children Hospital – About Us</title>
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anek+Gujarati:wght@100..800&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Tailwind (CDN, must be in head) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Fancybox CSS (optional, for video) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css">
+    <!-- AOS CSS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#00a650",
+                        secondary: "#3d348b",
+                        accent: "#F7B801",
+                        "accent-dark": "#F35B04",
+                    },
+                    // animatins
+                    animation: {
+                        fadeInUp: 'fadeInUp 0.8s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: 0, transform: 'translateY(1.875rem)' },
+                            '100%': { opacity: 1, transform: 'translateY(0)' },
+                        }
+                    },
+                    // fonts
+                    fontFamily: {
+                        'montserrat': ['"Montserrat", sans-serif'],
+                        'poppins': ['"Poppins", sans-serif'],
+                        'anek-gujarati': ['"Anek Gujarati", sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar { width: 0.375rem; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #3d348b; border-radius: 0.25rem; }
+        
+    </style>
+</head>
+<body class="bg-white text-gray-800 antialiased overflow-x-hidden font-poppins leading-relaxed">
+
+    <!-- ======= HEADER (logo left, menus right) ======= -->
+    <header id="main-header" class="fixed w-full top-0 z-40 transition-all duration-500 h-24 md:h-28 flex items-center border-b border-black/10 text-black bg-white">
+        <div class="w-full max-w-7xl mx-auto px-4 flex justify-between items-center">
+            <!-- logo (left) -->
+            <a href="index.html" id="brand-logo" class="flex items-center shrink-0">
+                <img src="./assets/img/sethi-hospital-logo.webp" 
+                     alt="Sethi Children Hospital" class="h-10 md:h-16 lg:h-20 w-auto object-contain">
+            </a>
+            <!-- nav menus (right, desktop) -->
+            <nav class="hidden lg:flex items-center space-x-8">
+                <a href="index.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 after:ease-in-out hover:after:w-full text-sm font-medium tracking-wide uppercase">Home</a>
+                <a href="about-us.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 after:ease-in-out hover:after:w-full text-sm font-medium tracking-wide uppercase">About</a>
+                <a href="services.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 after:ease-in-out hover:after:w-full text-sm font-medium tracking-wide uppercase">Services</a>
+                <a href="our-doctors.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 after:ease-in-out hover:after:w-full text-sm font-medium tracking-wide uppercase">Doctors</a>
+                <a href="tpa-and-insurance-companies.html" class="relative after:absolute after:w-0 after:h-0.5 after:-bottom-1 after:left-0 after:bg-current after:transition-all after:duration-300 after:ease-in-out hover:after:w-full text-sm font-medium tracking-wide uppercase">Insurance</a>
+                <button onclick="toggleMenu()" class="flex items-center gap-3 ml-4 pl-6 border-l border-current group">
+                    <span class="text-xs font-bold tracking-widest uppercase">Menu</span>
+                    <div class="space-y-1.5 group-hover:scale-110 transition">
+                        <span class="block w-6 h-0.5 bg-current"></span>
+                        <span class="block w-4 h-0.5 bg-current ml-auto group-hover:w-6"></span>
+                    </div>
+                </button>
+            </nav>
+            <!-- mobile: menu icon (right) -->
+            <button onclick="toggleMenu()" class="lg:hidden flex items-center justify-center w-10 h-10 rounded-full hover:bg-black/5">
+                <i data-lucide="menu" class="w-5 h-5"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Fullscreen overlay menu (same as reference) -->
+    <div id="full-menu" class="fixed inset-0 bg-[#0f172a] text-white z-50 transform -translate-y-full transition-transform duration-700 ease-[cubic-bezier(0.77,0,0.175,1)] flex flex-col overflow-y-auto">
+        <div class="sticky top-0 py-5 flex justify-between px-4 sm:px-6 container mx-auto bg-[#0f172a] border-b border-[#00a650]/30">
+            <span class="font-anek-gujarati text-xl sm:text-2xl italic text-gray-300">Navigation</span>
+            <button onclick="toggleMenu()" class="group flex items-center gap-2 sm:gap-3 hover:text-[#00a650]">
+                <span class="text-xs font-bold tracking-widest uppercase hidden sm:inline">Close</span>
+                <div class="relative w-8 h-8 sm:w-10 sm:h-10 border border-[#3d348b]/40 rounded-full group-hover:border-[#00a650] group-hover:rotate-90 transition-all">
+                    <i data-lucide="x" class="w-4 h-4 sm:w-5 sm:h-5 absolute inset-0 m-auto"></i>
+                </div>
+            </button>
+        </div>
+        <div class="flex-1 flex items-center justify-center container mx-auto px-4 py-8">
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl w-full">
+                <div>
+                    <h3 class="text-xs font-bold tracking-[0.2em] text-gray-500 mb-6 uppercase">Explore</h3>
+                    <ul class="space-y-4">
+                        <li><a href="index.html" class="block font-anek-gujarati text-3xl md:text-4xl hover:text-[#00a650] transition-all hover:translate-x-4">Home</a></li>
+                        <li><a href="about-us.html" class="block font-anek-gujarati text-3xl md:text-4xl hover:text-[#00a650] transition-all hover:translate-x-4">About</a></li>
+                        <li><a href="services.html" class="block font-anek-gujarati text-3xl md:text-4xl hover:text-[#00a650] transition-all hover:translate-x-4">Services</a></li>
+                        <li><a href="our-doctors.html" class="block font-anek-gujarati text-3xl md:text-4xl hover:text-[#00a650] transition-all hover:translate-x-4">Doctors</a></li>
+                    </ul>
+                </div>
+                <div class="md:border-l border-white/10 md:pl-12 space-y-8">
+                    <div>
+                        <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-4">Quick actions</h3>
+                        <ul class="space-y-3">
+                            <li><a href="appointment.php" class="flex items-center gap-3 text-gray-300 hover:text-[#00a650]"><span class="w-1 h-6 bg-[#00a650]/40 group-hover:bg-[#00a650]"></span>Appointment</a></li>
+                            <li><a href="tel:+919549101235" class="flex items-center gap-3 text-gray-300 hover:text-[#00a650]"><span class="w-1 h-6 bg-[#00a650]/40"></span>Emergency</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xs font-bold tracking-widest text-gray-500 mb-3">Connect</h3>
+                        <p class="text-gray-400 text-sm">info@sethihospital.com<br>+91 98290 20015</p>
+                        <div class="flex gap-3 mt-4">
+                            <a href="#" class="w-10 h-10 border border-[#3d348b]/40 rounded-full flex items-center justify-center hover:bg-[#00a650] hover:text-white"><i data-lucide="instagram" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 border border-[#3d348b]/40 rounded-full flex items-center justify-center hover:bg-[#00a650]"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                            <a href="#" class="w-10 h-10 border border-[#3d348b]/40 rounded-full flex items-center justify-center hover:bg-[#00a650]"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ======= HERO SWIPER SECTION (3 slides with different UI) ======= -->
+    <section class="relative pt-16 md:pt-20">
+        <div class="swiper hero-swiper" data-slide-count="3">
+            <div class="swiper-wrapper !flex !items-stretch">
+                <!-- SLIDE 1: Expert Treatment (Blue/Green theme) -->
+                <div class="swiper-slide !h-auto">
+                    <div class="relative bg-gradient-to-br from-blue-50 via-white to-green-50 min-h-[calc(100vh-5rem)] h-full flex max-md:flex-col items-center">
+                        <!-- Background pattern -->
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="absolute top-20 right-20 w-64 h-64 bg-primary/20 rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-20 left-20 w-80 h-80 bg-secondary/10 rounded-full blur-3xl"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 py-8 md:py-12 relative z-10 w-full flex-1 max-md:flex">
+                            <div class="flex max-lg:flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4 animate-fadeInUp flex-1">
+                                    <div class="inline-flex items-center gap-2 bg-primary/10 text-primary px-3 py-1.5 rounded-full text-xs md:text-sm font-medium">
+                                        <i data-lucide="heart-pulse" class="w-3.5 h-3.5"></i>
+                                        <span>Welcome to Sethi Hospital</span>
+                                    </div>
+                                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900">
+                                        Expert Treatment for <span class="text-primary">Your Little Ones</span>
+                                    </h1>
+                                    <p class="text-base text-gray-600 max-w-lg">
+                                        Providing compassionate, specialized care for children in a warm and friendly environment. 
+                                        Over 25 years of dedicated pediatric excellence.
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 pt-2">
+                                        <a href="about-us.html" class="group inline-flex items-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-0.5">
+                                            Learn More 
+                                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                                        </a>
+                                        <a href="contact-us.html" class="group inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-full text-sm font-semibold border-2 border-primary hover:bg-primary/5 transition-all hover:shadow-lg">
+                                            <i data-lucide="phone" class="w-4 h-4"></i>
+                                            Contact Us
+                                        </a>
+                                    </div>
+                                    <!-- Trust badges -->
+                                    <div class="flex items-center gap-4 pt-4">
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-primary"></i><span class="text-xs md:text-sm text-gray-600">25+ Years</span></div>
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-primary"></i><span class="text-xs md:text-sm text-gray-600">100+ Specialists</span></div>
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-primary"></i><span class="text-xs md:text-sm text-gray-600">24/7 Emergency</span></div>
+                                    </div>
+                                </div>
+                                <div class="relative lg:pl-8">
+                                    <div class="relative z-10">
+                                        <img src="./assets/img/sethi1.webp" 
+                                             alt="Happy child with doctor" 
+                                             class="rounded-2xl shadow-2xl w-full h-[20rem] md:h-[25rem] object-cover">
+                                        <!-- Floating card -->
+                                        <div class="absolute md:-bottom-4 md:-left-4 bottom-4 left-4 bg-white p-3 rounded-xl shadow-xl flex items-center gap-3">
+                                            <div class="w-10 h-10 bg-primary/10 rounded-full flex items-center justify-center">
+                                                <i data-lucide="users" class="w-5 h-5 text-primary"></i>
+                                            </div>
+                                            <div>
+                                                <p class="text-lg font-bold text-gray-900">15k+</p>
+                                                <p class="text-xs text-gray-500">Happy Families</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: PICU (Purple theme) -->
+                <div class="swiper-slide !h-auto">
+                    <div class="relative bg-gradient-to-tr from-purple-50 via-white to-purple-50 min-h-[calc(100vh-5rem)] h-full flex max-md:flex-col items-center">
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="absolute top-40 right-40 w-72 h-72 bg-secondary/20 rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-40 left-40 w-96 h-96 bg-purple-300/20 rounded-full blur-3xl"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 py-8 md:py-12 relative z-10 w-full flex-1 max-md:flex">
+                            <div class="flex max-lg:flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
+                                <div class="relative lg:pr-8 order-2 lg:order-1">
+                                    <img src="./assets/img/sethi2.avif" 
+                                         alt="Pediatric ICU" 
+                                         class="rounded-2xl shadow-2xl w-full h-[20rem] md:h-[25rem] object-cover">
+                                    <div class="absolute md:-top-4 md:-right-4 top-4 right-4 bg-white p-3 rounded-xl shadow-xl flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-secondary/10 rounded-full flex items-center justify-center">
+                                            <i data-lucide="ambulance" class="w-5 h-5 text-secondary"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-lg font-bold text-gray-900">24/7</p>
+                                            <p class="text-xs text-gray-500">Emergency Care</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="space-y-4 order-1 lg:order-2 animate-fadeInUp flex-1">
+                                    <div class="inline-flex items-center gap-2 bg-secondary/10 text-secondary px-3 py-1.5 rounded-full text-xs md:text-sm font-medium">
+                                        <i data-lucide="stethoscope" class="w-3.5 h-3.5"></i>
+                                        <span>Specialized Pediatric Care</span>
+                                    </div>
+                                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900">
+                                        24/7 Pediatric <span class="text-secondary">Intensive Care Unit</span>
+                                    </h1>
+                                    <p class="text-base text-gray-600 max-w-lg">
+                                        State-of-the-art PICU managed by qualified intensivists with round-the-clock senior consultant cover. 
+                                        Directed by Dr. Chirag Sethi.
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 pt-2">
+                                        <a href="pediatric-intensive-care-unit.html" class="group inline-flex items-center gap-2 bg-secondary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-secondary/90 transition-all hover:shadow-xl hover:-translate-y-0.5">
+                                            Our Services
+                                            <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition"></i>
+                                        </a>
+                                        <a href="our-doctors.html" class="group inline-flex items-center gap-2 bg-white text-secondary px-6 py-3 rounded-full text-sm font-semibold border-2 border-secondary hover:bg-secondary/5 transition-all">
+                                            <i data-lucide="users" class="w-4 h-4"></i>
+                                            Our Doctors
+                                        </a>
+                                    </div>
+                                    <div class="flex items-center gap-4 pt-4">
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-secondary"></i><span class="text-xs md:text-sm text-gray-600">Intensivists</span></div>
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-secondary"></i><span class="text-xs md:text-sm text-gray-600">Advanced Monitors</span></div>
+                                        <div class="flex items-center gap-2"><i data-lucide="circle-check" class="w-4 h-4 text-secondary"></i><span class="text-xs md:text-sm text-gray-600">Ventilators</span></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: Neonatology (Pink/Orange theme) -->
+                <div class="swiper-slide !h-auto">
+                    <div class="relative bg-gradient-to-tl from-pink-50 via-white to-orange-50 min-h-[calc(100vh-5rem)] h-full flex max-md:flex-col items-center">
+                        <div class="absolute inset-0 opacity-10">
+                            <div class="absolute top-20 left-20 w-80 h-80 bg-pink-300/20 rounded-full blur-3xl"></div>
+                            <div class="absolute bottom-20 right-20 w-96 h-96 bg-accent/10 rounded-full blur-3xl"></div>
+                        </div>
+                        <div class="max-w-7xl mx-auto px-4 py-8 md:py-12 relative z-10 w-full flex-1 max-md:flex">
+                            <div class="flex max-lg:flex-col lg:grid lg:grid-cols-2 gap-8 items-center">
+                                <div class="space-y-4 animate-fadeInUp flex-1">
+                                    <div class="inline-flex items-center gap-2 bg-pink-100 text-pink-600 px-3 py-1.5 rounded-full text-xs md:text-sm font-medium">
+                                        <i data-lucide="baby" class="w-3.5 h-3.5"></i>
+                                        <span>Neonatal Care Excellence</span>
+                                    </div>
+                                    <h1 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900">
+                                        Advanced <span class="text-pink-600">Neonatology Services</span>
+                                    </h1>
+                                    <p class="text-base text-gray-600 max-w-lg">
+                                        Comprehensive newborn care with experienced neonatologists and modern NICU facilities for your little one. 
+                                        Level III NICU available 24/7.
+                                    </p>
+                                    <div class="flex flex-wrap gap-3 pt-2">
+                                        <a href="appointment.php" class="group inline-flex items-center gap-2 bg-pink-600 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-pink-700 transition-all hover:shadow-xl hover:-translate-y-0.5">
+                                            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                                            Book Appointment
+                                        </a>
+                                        <a href="about-us.html" class="group inline-flex items-center gap-2 bg-white text-pink-600 px-6 py-3 rounded-full text-sm font-semibold border-2 border-pink-600 hover:bg-pink-50 transition-all">
+                                            <i data-lucide="info" class="w-4 h-4"></i>
+                                            About Us
+                                        </a>
+                                    </div>
+                                    <!-- Stats row -->
+                                    <div class="grid grid-cols-3 gap-3 pt-4">
+                                        <div>
+                                            <div class="text-lg md:text-xl font-bold text-pink-600">15+</div>
+                                            <div class="text-xs md:text-sm text-gray-500">NICU Beds</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg md:text-xl font-bold text-pink-600">24/7</div>
+                                            <div class="text-xs md:text-sm text-gray-500">Neonatologists</div>
+                                        </div>
+                                        <div>
+                                            <div class="text-lg md:text-xl font-bold text-pink-600">1000+</div>
+                                            <div class="text-xs md:text-sm text-gray-500">Annual Births</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="relative lg:pl-8">
+                                    <img src="./assets/img/sethi3.avif" 
+                                         alt="Neonatal care" 
+                                         class="rounded-2xl shadow-2xl w-full h-[20rem] md:h-[25rem] object-cover">
+                                    <div class="absolute md:-bottom-4 md:-right-4 bottom-4 right-4 bg-white p-3 rounded-xl shadow-xl flex items-center gap-3">
+                                        <div class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center">
+                                            <i data-lucide="thermometer" class="w-5 h-5 text-pink-600"></i>
+                                        </div>
+                                        <div>
+                                            <p class="text-lg font-bold text-gray-900">Level III</p>
+                                            <p class="text-xs text-gray-500">NICU Facility</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Navigation Arrows (desktop) -->
+            <button class="hero-prev hidden md:flex absolute left-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur rounded-full shadow-xl items-center justify-center text-gray-700 hover:text-primary transition-all hover:scale-110">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button class="hero-next hidden md:flex absolute right-6 top-1/2 -translate-y-1/2 z-20 w-12 h-12 bg-white/90 backdrop-blur rounded-full shadow-xl items-center justify-center text-gray-700 hover:text-primary transition-all hover:scale-110">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+            
+            <!-- Pagination (mobile) -->
+            <div class="hero-pagination relative flex md:hidden items-center justify-center -mt-8 py-4 z-10 [&_.swiper-pagination-bullet]:bg-primary [&_.swiper-pagination-bullet]:!w-3 [&_.swiper-pagination-bullet]:!h-3 [&_.swiper-pagination-bullet]:!rounded-full"></div>
+            
+            <!-- Slide counter (desktop) -->
+            <div class="hidden md:block absolute bottom-4 right-4 md:right-8 z-20 bg-white/90 backdrop-blur px-3 py-1.5 rounded-full shadow-lg text-sm font-medium text-gray-700">
+                <span class="swiper-pagination-current">1</span> / <span class="swiper-pagination-total">3</span>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Appointment Banner (add before footer) -->
+    <section class="overflow-hidden py-8 bg-gradient-to-r from-[#00a650] to-[#3d348b]" data-aos="fade-up" data-aos-duration="600">
+        <div class="max-w-7xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
+            <h3 class="text-white text-xl md:text-2xl font-bold md:text-left text-center">FOR BOOKING APPOINTMENT, PLEASE CALL - 0144-2335565</h3>
+            <a href="appointment.php" class="bg-white text-[#00a650] px-8 py-3 rounded-full font-semibold hover:shadow-xl transition-all hover:-translate-y-0.5">
+                Request An Appointment
+            </a>
+        </div>
+    </section>
+
+    <!-- ======= MISSION + OVERVIEW (adapted from about reference) ======= -->
+    <section id="mission" class="overflow-hidden py-12 md:py-16 bg-gray-50" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4 grid lg:grid-cols-2 gap-8 items-center">
+            <div class="order-2 lg:order-1">
+                <span class="text-[#00a650] font-semibold tracking-wider text-xs md:text-sm mb-2 block">Our endeavour</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900 mb-4">Sethi Children <span class="text-[#3d348b]">Hospital</span></h2>
+                <div class="space-y-3 text-gray-600 text-base">
+                    <p>The idea of setting up such a hospital for child healthcare came in our director's mind nearly two decades ago, starting with 4 beds & is increased to 75 beds today. Paediatricians are not mere doctors – they are trusted partners in your child's health.</p>
+                    <p>We are a unique centre of excellence for children's healthcare in the state, with a dedicated PICU and NICU managed by qualified intensivists 24/7.</p>
+                </div>
+                <div class="grid grid-cols-2 gap-4 mt-6">
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-200"><span class="text-xl md:text-2xl font-bold text-[#00a650]">25+</span><div class="text-xs md:text-sm text-gray-500">Years of trust</div></div>
+                    <div class="bg-white p-4 rounded-xl text-center shadow-sm border border-gray-200"><span class="text-xl md:text-2xl font-bold text-[#3d348b]">75+</span><div class="text-xs md:text-sm text-gray-500">Bed capacity</div></div>
+                </div>
+            </div>
+            <div class="relative order-1 lg:order-2">
+                <img src="./assets/img/hospitalImage2.webp" alt="doctor with child" class="rounded-2xl shadow-2xl w-full h-[20rem] md:h-[25rem] object-cover">
+                <div class="absolute md:-bottom-4 md:-left-4 bottom-4 left-4 bg-white p-3 rounded-xl shadow-xl flex items-center gap-2"><i data-lucide="circle-check" class="text-[#00a650] w-6 h-6"></i><span class="font-bold text-sm">ISO certified</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= LEGACY + VALUES (hybrid from both references) ======= -->
+    <section id="legacy" class="overflow-hidden py-12 md:py-16 bg-gradient-to-br from-green-900 via-primary to-emerald-900 overflow-hidden" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/20 border border-white/40 text-white text-xs md:text-sm font-bold uppercase tracking-wider"><i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Our legacy</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-anek-gujarati text-white mt-3">The <span class="text-white/90">Legacy</span> of excellence</h2>
+            </div>
+            <div class="grid lg:grid-cols-2 gap-8 items-center">
+                <div class="relative">
+                    <img src="./assets/img/sethi1.webp" alt="hospital team" class="rounded-2xl shadow-2xl shadow-lime-700 w-full h-[20rem] md:h-[25rem] object-cover">
+                    <div class="absolute md:-bottom-4 md:-left-4 bottom-4 left-4 bg-white p-3 rounded-xl shadow-xl max-w-[11.25rem] border border-white/30"><span class="text-lg font-bold text-[#3d348b]">1997</span><p class="text-xs text-gray-600">founded by Dr. Dileep Sethi</p></div>
+                </div>
+                <div class="space-y-4">
+                    <p class="text-white/90 text-base">Mount Litera Zee School’s philosophy inspires us, but our journey is unique: we started as a small clinic and became the region’s most trusted paediatric hospital. We synthesise human values with the highest quality of teaching–learning in healthcare.</p>
+                    <div class="bg-white/10 backdrop-blur-sm p-5 rounded-xl border-l-4 border-white/60 shadow-sm">
+                        <h3 class="text-lg font-bold text-white mb-1 font-anek-gujarati">Our vision</h3>
+                        <p class="text-white/80 text-sm">To establish social spaces for quality child healthcare, improving human capital and creating a healthier society.</p>
+                    </div>
+                    <div class="grid grid-cols-3 gap-3">
+                        <div class="text-center bg-white/10 rounded-xl py-3 border border-white/20"><span class="text-lg md:text-2xl font-bold text-white">25+</span><span class="block text-xs md:text-sm text-white/80">years</span></div>
+                        <div class="text-center bg-white/10 rounded-xl py-3 border border-white/20"><span class="text-lg md:text-2xl font-bold text-white">100+</span><span class="block text-xs md:text-sm text-white/80">specialists</span></div>
+                        <div class="text-center bg-white/10 rounded-xl py-3 border border-white/20"><span class="text-lg md:text-2xl font-bold text-white">15k</span><span class="block text-xs md:text-sm text-white/80">families</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= VALUES & PHILOSOPHY (cards inspired by about page) ======= -->
+    <section class="overflow-hidden py-12 md:py-16 bg-gradient-to-b from-gray-50 to-white" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="text-[#00a650] font-semibold tracking-wider text-xs md:text-sm">Why we are different</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900 mt-2">Our core <span class="text-[#3d348b]">values</span></h2>
+            </div>
+                <div class="grid md:grid-cols-3 gap-6">
+                <div class="group bg-white p-6 rounded-xl shadow-soft border border-gray-200 hover:border-[#00a650]/30 hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 bg-[#00a650]/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#00a650] group-hover:text-white transition"><i data-lucide="heart-pulse" class="w-6 h-6 text-[#00a650] group-hover:text-white"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 font-anek-gujarati">Compassionate care</h3>
+                    <p class="text-gray-500 text-sm">Every child is unique. We treat them with the warmth and respect they deserve.</p>
+                </div>
+                <div class="group bg-white p-6 rounded-xl shadow-soft border border-gray-200 hover:border-[#3d348b]/30 hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 bg-[#3d348b]/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#3d348b] group-hover:text-white transition"><i data-lucide="graduation-cap" class="w-6 h-6 text-[#3d348b] group-hover:text-white"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 font-anek-gujarati">Expert team</h3>
+                    <p class="text-gray-500 text-sm">Led by senior paediatricians and intensivists, continuously trained.</p>
+                </div>
+                <div class="group bg-white p-6 rounded-xl shadow-soft border border-gray-200 hover:border-[#00a650]/30 hover:-translate-y-1 transition">
+                    <div class="w-12 h-12 bg-[#00a650]/10 rounded-xl flex items-center justify-center mb-3 group-hover:bg-[#00a650] group-hover:text-white transition"><i data-lucide="building-2" class="w-6 h-6 text-[#00a650] group-hover:text-white"></i></div>
+                    <h3 class="text-lg md:text-xl font-bold text-gray-900 mb-2 font-anek-gujarati">Advanced infra</h3>
+                    <p class="text-gray-500 text-sm">75 beds, PICU, NICU, modern lab & 24/7 emergency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Health Tips Section (Add after core values) -->
+    <section class="overflow-hidden py-12 md:py-16 bg-gray-50" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8">
+                <span class="text-[#00a650] font-semibold tracking-wider text-xs md:text-sm">Health Information</span>
+                <h2 class="text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold font-anek-gujarati text-gray-900 mt-2">Our Health <span class="text-[#3d348b]">Tips</span></h2>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- Health Tip 1 -->
+                <div class="bg-white flex flex-col p-6 rounded-xl shadow-lg border-l-4 border-[#00a650] hover:shadow-xl transition">
+                    <h3 class="font-bold text-lg md:text-xl mb-2 flex items-center gap-2 font-anek-gujarati"><i data-lucide="alert-triangle" class="w-5 h-5 text-[#00a650]"></i>Health Care Associated Infections</h3>
+                    <p class="text-gray-600 text-sm flex-1">What is Health Care Associated Infection and how serious is this problem?</p>
+                    <a href="health-info.html" class="mt-3 inline-flex items-center text-[#00a650] text-sm font-medium">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+                <!-- Health Tip 2 -->
+                <div class="bg-white flex flex-col p-6 rounded-xl shadow-lg border-l-4 border-[#3d348b] hover:shadow-xl transition">
+                    <h3 class="font-bold text-lg md:text-xl mb-2 flex items-center gap-2 font-anek-gujarati"><i data-lucide="flame" class="w-5 h-5 text-[#3d348b]"></i>Burns in Children</h3>
+                    <p class="text-gray-600 text-sm flex-1">Burns are one of the most common causes of injury to children. Learn immediate first aid steps.</p>
+                    <a href="health-info.html" class="mt-3 inline-flex items-center text-[#3d348b] text-sm font-medium">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+                <!-- Health Tip 3 -->
+                <div class="bg-white flex flex-col p-6 rounded-xl shadow-lg border-l-4 border-pink-600 hover:shadow-xl transition">
+                    <h3 class="font-bold text-lg md:text-xl mb-2 flex items-center gap-2 font-anek-gujarati"><i data-lucide="bug" class="w-5 h-5 text-pink-600"></i>Dengue Fever</h3>
+                    <p class="text-gray-600 text-sm flex-1">Brief introduction of Dengue illness - a disease caused by a family of viruses transmitted by mosquitoes.</p>
+                    <a href="health-info.html" class="mt-3 inline-flex items-center text-pink-600 text-sm font-medium">Read more <i data-lucide="arrow-right" class="w-4 h-4"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Emergency Services Detail Section -->
+    <section class="overflow-hidden py-12 md:py-16 bg-white" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Emergency Contact Card -->
+                <div class="bg-red-50 p-8 rounded-2xl border border-red-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-red-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="ambulance" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 font-anek-gujarati">Emergency Services</h3>
+                    </div>
+                    <div class="space-y-4">
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-red-500"></i>
+                            <span class="font-bold">+91 - 9829020015</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-5 h-5 text-red-500"></i>
+                            <span class="font-bold">+91 - 1442701321</span>
+                        </div>
+                        <div class="bg-white p-4 rounded-xl mt-4">
+                            <h4 class="font-bold mb-2 font-anek-gujarati">Emergency Services at Night:</h4>
+                            <p class="text-gray-600 text-sm">The ER is managed by two trained pediatricians 24x7 even on public holidays and weekends. In addition, at least one senior consultant stays within the hospital premises during nights, thus giving 24x7 senior consultant driven cover to handle any pediatric emergency.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Important Notes Card -->
+                <div class="bg-yellow-50 p-8 rounded-2xl border border-yellow-200">
+                    <div class="flex items-center gap-3 mb-4">
+                        <div class="w-12 h-12 bg-yellow-500 rounded-full flex items-center justify-center">
+                            <i data-lucide="info" class="w-6 h-6 text-white"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold text-gray-900 font-anek-gujarati">Important Notes</h3>
+                    </div>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-gray-700">We have only exclusive "Hospital to Hospital" Transport services in the case of any emergency.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i data-lucide="alert-circle" class="w-5 h-5 text-yellow-600 flex-shrink-0 mt-0.5"></i>
+                            <span class="text-gray-700">We do not have "Home to Hospital" transport services in the case of any emergency.</span>
+                        </li>
+                    </ul>
+                    <div class="mt-6 bg-white p-4 rounded-xl">
+                        <p class="text-sm text-gray-600">For appointment booking: <span class="font-bold text-gray-900">0144-2335565</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= CTA (green/purple gradient) ======= -->
+    <section class="overflow-hidden relative py-12 md:py-16 bg-gradient-to-r from-[#00a650] to-[#3d348b]" data-aos="fade-up" data-aos-duration="700">
+        <img src="./assets/img/sethi4.webp" class="absolute inset-0 z-0 pointer-events-none mix-blend-soft-light opacity-50 object-cover w-full" alt="Be part of the Sethi legacy" title="Be part of the Sethi legacy" />
+        <div class="max-w-7xl mx-auto px-4 text-center text-white relative z-10">
+            <span class="inline-block px-3 py-1 bg-white/20 rounded-full text-xs md:text-sm font-bold uppercase tracking-wider mb-3">join our family</span>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold font-anek-gujarati mb-4">Be part of the Sethi legacy</h2>
+            <p class="text-base text-white/80 max-w-2xl mx-auto mb-6">Give your child the best possible care – from routine checkups to critical intensive care.</p>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="appointment.php" class="px-6 py-3 text-sm font-semibold bg-white text-[#00a650] rounded-full hover:shadow-2xl transition flex items-center gap-2"><i data-lucide="calendar-check" class="w-4 h-4"></i> Book appointment</a>
+                <a href="tel:+919549101235" class="px-6 py-3 text-sm font-semibold bg-transparent border-2 border-white text-white rounded-full hover:bg-white/10 flex items-center gap-2"><i data-lucide="phone" class="w-4 h-4"></i> Emergency</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======= TEAM SECTION (Enhanced from home page) ======= -->
+    <section class="overflow-hidden py-12 md:py-16 bg-white" data-aos="fade-up" data-aos-duration="700">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-8 md:mb-10">
+                <span class="text-primary font-semibold tracking-wider text-xs md:text-sm">Our Experts</span>
+                <h2 class="text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold font-anek-gujarati text-gray-900 mt-2">Meet Our <span class="text-secondary">Specialists</span></h2>
+                <p class="text-gray-600 text-sm md:text-base max-w-2xl mx-auto mt-3 md:mt-4">Our panel of doctors has extensive knowledge and experience on holistic development of a child at physical, emotional and social levels.</p>
+            </div>
+            
+            <div class="relative">
+                <div class="swiper team-swiper py-2">
+                    <div class="swiper-wrapper ![transition-timing-function:linear]">
+                        <!-- team 1 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/deelip.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Dileep Sethi">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Dileep Sethi</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Paediatrics & Neonatology</p>
+                            </div>
+                        </div>
+                        <!-- team 2 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/chirag.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Chirag Sethi">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Chirag Sethi</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Paed. Critical Care</p>
+                            </div>
+                        </div>
+                        <!-- team 3 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/manisha-rathi.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Manisha Rathi">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Manisha Rathi</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Neonatologist</p>
+                            </div>
+                        </div>
+                        <!-- team 4 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/shailender.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Satendra">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Satendra</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Paediatrics & Neonatology</p>
+                            </div>
+                        </div>
+                        <!-- team 5 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/Gulshan.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Gulshan">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Gulshan</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Paediatrics & Neonatology</p>
+                            </div>
+                        </div>
+                        <!-- team 6 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/doctorPlaceholder.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Sunepal">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Sunepal</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Resident Doctor</p>
+                            </div>
+                        </div>
+                        <!-- team 7 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/doctorPlaceholder.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Vasundhra Chugh">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Vasundhra Chugh</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                        <!-- team 8 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/PoojaKapoor.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Pooja Kapoor">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Pooja Kapoor</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                        <!-- team 9 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/NatwarParwal.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Natwar Parwal">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Natwar Parwal</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                        <!-- team 10 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/doctorPlaceholder.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Madhu Choudhary">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Madhu Choudhary</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                        <!-- team 11 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/doctorPlaceholder.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Ankit Mangla">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Ankit Mangla</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                        <!-- team 12 -->
+                        <div class="swiper-slide">
+                            <div class="text-center group">
+                                <div class="mb-3 md:mb-4">
+                                    <img src="./assets/img/doctorPlaceholder.webp" class="size-24 sm:size-28 md:size-32 rounded-2xl md:rounded-3xl mx-auto object-cover border-2 md:border-4 border-white shadow-lg group-hover:border-primary transition-all group-hover:scale-105 duration-300" alt="Dr. Rambabu Goyal">
+                                </div>
+                                <h3 class="font-bold text-base md:text-xl lg:text-2xl font-anek-gujarati"><span class="text-primary">Dr.</span> Rambabu Goyal</h3>
+                                <p class="text-gray-500 text-xs md:text-sm">Visiting Consultant</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Navigation -->
+                <button class="team-prev hidden md:flex absolute left-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-gray-600 hover:text-primary transition-all hover:scale-110">
+                    <i data-lucide="chevron-left" class="w-6 h-6"></i>
+                </button>
+                <button class="team-next hidden md:flex absolute right-0 top-1/2 -translate-y-1/2 z-10 w-12 h-12 bg-white rounded-full shadow-lg items-center justify-center text-gray-600 hover:text-primary transition-all hover:scale-110">
+                    <i data-lucide="chevron-right" class="w-6 h-6"></i>
+                </button>
+                
+                <!-- Pagination -->
+                <div class="team-pagination flex justify-center mt-8 relative [&_.swiper-pagination-bullet]:bg-primary [&_.swiper-pagination-bullet]:!w-3 [&_.swiper-pagination-bullet]:!h-3 [&_.swiper-pagination-bullet]:!rounded-full"></div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ======= FOOTER SECTION (full, expanded) ======= -->
+    <footer class="overflow-hidden relative w-full bg-slate-900 text-white" data-aos="fade-down" data-aos-duration="600">
+        <!-- Main footer with gradient background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-secondary via-slate-900 to-slate-950 opacity-95 z-0"></div>
+        <div class="absolute top-0 right-0 w-[50rem] h-[50rem] bg-primary/10 rounded-full blur-[7.5rem] pointer-events-none z-0 mix-blend-screen"></div>
+        <div class="absolute bottom-0 left-0 w-[37.5rem] h-[37.5rem] bg-accent/5 rounded-full blur-[6.25rem] pointer-events-none z-0 mix-blend-screen"></div>
+        
+        <div class="relative z-10 max-w-7xl mx-auto px-4 pt-12 pb-8">
+            <!-- Top CTA card -->
+            <div class="mb-12 rounded-2xl p-6 lg:p-8 relative overflow-hidden bg-gradient-to-r from-primary/20 via-secondary/20 to-primary/20 border border-primary/30 shadow-2xl backdrop-blur-sm">
+                <div class="absolute inset-0 bg-[url('./assets/img/sethi4.webp')] opacity-20"></div>
+                <div class="grid lg:grid-cols-2 gap-6 items-center relative z-10">
+                    <div>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/20 border border-primary/30 mb-3">
+                            <span class="relative flex h-2 w-2">
+                                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-2 w-2 bg-accent"></span>
+                            </span>
+                            <span class="text-xs font-bold text-accent uppercase tracking-wider">Get in touch</span>
+                        </div>
+                        <h2 class="text-2xl md:text-3xl font-bold font-anek-gujarati text-white mb-3">We're Here for Your Child's Health</h2>
+                        <p class="text-slate-300 text-sm max-w-xl">Have questions about admissions, programs, or emergency care? Our team is available 24/7 to help you.</p>
+                    </div>
+                    <div class="flex flex-col sm:flex-row gap-3 lg:justify-end">
+                        <a href="appointment.php" class="inline-flex items-center justify-center gap-2 bg-primary text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-primary/90 transition-all hover:shadow-xl hover:-translate-y-0.5">
+                            <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                            Book Appointment
+                        </a>
+                        <a href="tel:+919549101235" class="inline-flex items-center justify-center gap-2 bg-white/10 backdrop-blur-sm border border-white/30 text-white px-6 py-3 rounded-full text-sm font-semibold hover:bg-white/20 transition-all">
+                            <i data-lucide="phone" class="w-4 h-4"></i>
+                            Emergency: +91-9549101235
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main footer grid (expanded) -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8 mb-12">
+                <!-- Column 1: About & contact -->
+                <div class="lg:col-span-4 space-y-6">
+                    <a href="index.html" class="inline-block">
+                        <img src="./assets/img/sethi-hospital-logo.webp" 
+                             alt="Sethi Children Hospital" class="h-14 brightness-0 invert">
+                    </a>
+                    <p class="text-slate-400 text-sm">
+                        We have been most trusted health care innovators for 25+ years. We are glad for our rich history of serving the community with excellence and compassion.
+                    </p>
+                    <div class="flex items-start gap-4 p-5 rounded-2xl bg-white/5 border border-white/10 hover:border-primary/30 transition-colors">
+                        <div class="mt-1">
+                            <i data-lucide="map-pin" class="w-6 h-6 text-primary"></i>
+                        </div>
+                        <div>
+                            <h4 class="text-white text-sm font-bold uppercase tracking-wide mb-1 font-anek-gujarati">Location</h4>
+                            <p class="text-slate-400 text-sm">Sethi Children Hospital, 19 Lajpat Nagar, Vijay Mandir Road, Alwar</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 font-anek-gujarati">
+                        <span class="w-1 h-5 bg-primary rounded-full"></span>
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">Home</a></li>
+                        <li><a href="about-us.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">About Us</a></li>
+                        <li><a href="our-doctors.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">Our Doctors</a></li>
+                        <li><a href="services.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">Services</a></li>
+                        <li><a href="vaccination.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">Vaccination</a></li>
+                        <li><a href="tpa-and-insurance-companies.html" class="text-slate-400 hover:text-primary hover:translate-x-1 transition-all duration-300 inline-flex items-center gap-2 text-sm">Insurance</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Services -->
+                <div class="lg:col-span-2">
+                    <h3 class="text-white text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 font-anek-gujarati">
+                        <span class="w-1 h-5 bg-primary rounded-full"></span>
+                        Our Services
+                    </h3>
+                    <ul class="space-y-3">
+                        <li><a href="super-speciality-clinics.html" class="text-slate-400 text-sm hover:text-primary transition-colors">Super Speciality Clinics</a></li>
+                        <li><a href="pediatric-intensive-care-unit.html" class="text-slate-400 text-sm hover:text-primary transition-colors">Pediatric Intensive Care (PICU)</a></li>
+                        <li><a href="neonatology-services.html" class="text-slate-400 text-sm hover:text-primary transition-colors">Neonatology Services</a></li>
+                        <li><a href="x-ray-and-lab-services.html" class="text-slate-400 text-sm hover:text-primary transition-colors">X-Ray and Lab Services</a></li>
+                        <li><a href="vaccination.html" class="text-slate-400 text-sm hover:text-primary transition-colors">Vaccination Services</a></li>
+                        <li><a href="emergency-services.html" class="text-slate-400 text-sm hover:text-primary transition-colors">Emergency Services</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Contact & Hours -->
+                <div class="lg:col-span-4">
+                    <h3 class="text-white text-sm font-bold uppercase tracking-widest mb-6 flex items-center gap-2 font-anek-gujarati">
+                        <span class="w-1 h-5 bg-primary rounded-full"></span>
+                        Contact & Hours
+                    </h3>
+                    
+                    <!-- Contact items -->
+                    <div class="space-y-4 mb-6">
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Emergency</p>
+                                <a href="tel:+919549101235" class="text-white font-semibold text-sm hover:text-primary transition">+91 95491 01235</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Appointment / Insurance</p>
+                                <a href="tel:+917891452498" class="text-white font-semibold text-sm hover:text-primary transition">+91 78914 52498</a> / <a href="tel:+919799346653" class="text-white font-semibold text-sm hover:text-primary transition">+91 97993 46653</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                <i data-lucide="mail" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Email</p>
+                                <a href="mailto:sethichildrenhospital@gmail.com" class="text-white font-semibold text-sm hover:text-primary transition">sethichildrenhospital@gmail.com</a>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-4 group">
+                            <div class="w-12 h-12 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all">
+                                <i data-lucide="phone" class="w-5 h-5"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 font-bold uppercase tracking-wider">Fax</p>
+                                <a href="tel:+911442335565" class="text-white font-semibold text-sm hover:text-primary transition">+91-144-2335565</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- Opening Hours (compact on desktop, full width on mobile) -->
+            <div class="bg-white/5 rounded-2xl p-5 border border-white/10 w-full">
+                <h4 class="text-white font-bold mb-3 flex items-center gap-2 font-anek-gujarati"><i data-lucide="clock" class="w-5 h-5 text-primary"></i> Opening Hours</h4>
+                <ul class="space-y-2 text-sm">
+                    <li class="flex justify-between"><span class="text-slate-400">Monday - Friday</span><span class="text-white font-medium">8:00 AM - 9:00 PM</span></li>
+                    <li class="flex justify-between"><span class="text-slate-400">Saturday</span><span class="text-white font-medium">9:00 AM - 8:00 PM</span></li>
+                    <li class="flex justify-between"><span class="text-slate-400">Sunday</span><span class="text-accent font-medium">Emergency Only</span></li>
+                    <li class="flex justify-between pt-2 border-t border-white/10"><span class="text-slate-400">Emergency</span><span class="text-primary font-bold">24/7 Always Open</span></li>
+                </ul>
+            </div>
+
+            <!-- Social links & copyright -->
+            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+                <div class="text-center md:text-left">
+                    <p class="text-slate-200 text-sm">
+                        Copyright © 2017 Sethi Children Hospital. All rights reserved.
+                    </p>
+                    <p class="text-slate-300 text-xs mt-1">
+                        Designed & Developed By: <a href="#" class="text-slate-400 hover:text-primary transition">IMG GLOBAL INFOTECH</a>
+                    </p>
+                </div>
+                
+                <div class="flex items-center gap-4">
+                    <a href="#" class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1">
+                        <i data-lucide="facebook" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1">
+                        <i data-lucide="twitter" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1">
+                        <i data-lucide="instagram" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1">
+                        <i data-lucide="linkedin" class="w-5 h-5"></i>
+                    </a>
+                    <a href="#" class="w-11 h-11 rounded-full border border-white/10 bg-white/5 flex items-center justify-center text-slate-400 hover:bg-primary hover:text-white hover:border-primary transition-all hover:-translate-y-1">
+                        <i data-lucide="youtube" class="w-5 h-5"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Transport note -->
+            <div class="mt-6 text-xs text-slate-200">
+                <p>We have only exclusive "Hospital to Hospital" Transport services. We do not have "Home to Hospital" transport.</p>
+            </div>
+        </div>
+        <!-- Disclaimer (full width bar, as per reference) -->
+        <div class="w-full bg-gray-800 border-t border-gray-700 py-4 px-4 relative z-10">
+            <p class="text-white text-xs max-w-7xl px-4 mx-auto">
+                <strong class="text-gray-200">Disclaimer:</strong> The intent of this website is purely for information and guidance. It is not meant for marketing or promotion of any kind.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Back to top button -->
+    <a href="#" id="backToTop" class="fixed bottom-6 right-6 w-12 h-12 bg-primary text-white rounded-full flex items-center justify-center opacity-0 invisible transition-all shadow-lg z-50 hover:bg-primary/90 hover:-translate-y-1">
+        <i data-lucide="arrow-up" class="w-5 h-5"></i>
+    </a>
+    <!-- JS: loaded at footer for better performance -->
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!-- Fancybox JS (optional, for video) -->
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <!-- AOS JS (Animate On Scroll) -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script>
+        lucide.createIcons();
+        AOS.init({ duration: 700, offset: 80, once: true });
+
+        // Header scroll effect (same as first reference)
+        const header = document.getElementById('main-header');
+        const logo = document.getElementById('brand-logo');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('h-20', 'md:h-24');
+                header.classList.remove('h-24', 'md:h-28');
+                // if (logo) logo.querySelector('img')?.classList.remove('brightness-0', 'invert');
+            } else {
+                header.classList.remove('h-20', 'md:h-24');
+                header.classList.add('h-24', 'md:h-28');
+                // if (logo) logo.querySelector('img')?.classList.add('brightness-0', 'invert');
+            }
+        });
+
+        // Menu toggle
+        function toggleMenu() {
+            const menu = document.getElementById('full-menu');
+            menu.classList.toggle('-translate-y-full');
+        }
+
+        // Back to top
+        const topBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', ()=>{
+            if (window.scrollY > 500) {
+                topBtn.classList.remove('opacity-0','invisible');
+                topBtn.classList.add('opacity-100','visible');
+            } else {
+                topBtn.classList.add('opacity-0','invisible');
+                topBtn.classList.remove('opacity-100','visible');
+            }
+        });
+
+        
+        // Hero Swiper initialization
+        const heroSwiper = new Swiper('.hero-swiper', {
+            slidesPerView: 1,
+            loop: true,
+            effect: 'fade',
+            fadeEffect: { crossFade: true },
+            // autoplay: {
+            //     delay: 6000,
+            //     disableOnInteraction: false,
+            // },
+            speed: 800,
+            navigation: {
+                prevEl: '.hero-prev',
+                nextEl: '.hero-next',
+            },
+            pagination: {
+                el: '.hero-pagination',
+                clickable: true,
+                dynamicBullets: true,
+            },
+            on: {
+                init: function() {
+                    updateCounter(this);
+                },
+                slideChange: function() {
+                    updateCounter(this);
+                }
+            }
+        });
+
+        // Swipers
+        new Swiper('.team-swiper', {
+            slidesPerView: 2, spaceBetween: 16,
+            navigation: { prevEl: '.team-prev', nextEl: '.team-next' },
+            pagination: { el: '.team-pagination', clickable: true, dynamicBullets: true },
+            breakpoints: { 640:{slidesPerView:3}, 1024:{slidesPerView:5} },
+            speed: 8000,
+            autoplay: {
+                delay: 0,
+                disableOnInteraction: false
+            }
+        });
+
+        
+        function updateCounter(swiper) {
+            const current = document.querySelector('.swiper-pagination-current');
+            const total = document.querySelector('.swiper-pagination-total');
+            if (current && total) {
+                current.textContent = swiper.realIndex + 1;
+                // With loop: true, slides.length includes clones; use data-slide-count or real slide count
+                const totalSlides = swiper.el?.dataset?.slideCount
+                    ? parseInt(swiper.el.dataset.slideCount, 10)
+                    : (swiper.slides && swiper.slides.length ? swiper.slides.length : 3);
+                total.textContent = totalSlides;
+            }
+        }
+
+
+        Fancybox.bind("[data-fancybox]");
+    </script>
+</body>
+</html>
