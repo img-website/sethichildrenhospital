@@ -38,3 +38,4 @@ require_once SCH_THEME_DIR . '/inc/acf-fields-neonatology.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-picu.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-vaccination-services.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-xray-lab.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-emergency-services.php';
