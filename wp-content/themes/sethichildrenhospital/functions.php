@@ -33,3 +33,8 @@ require_once SCH_THEME_DIR . '/inc/acf-fields-doctors.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-vaccination.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-health-info.php';
 require_once SCH_THEME_DIR . '/inc/acf-fields-insurance.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-super-clinics.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-neonatology.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-picu.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-vaccination-services.php';
+require_once SCH_THEME_DIR . '/inc/acf-fields-xray-lab.php';

@@ -82,15 +82,39 @@
         });
     }
 
-    // Gallery Swiper (for PICU/NICU pages)
+    // Gallery Swiper (services inner pages: 1 slide full width, autoplay, timer progress bar)
     if (typeof Swiper !== 'undefined' && document.querySelector('.gallery-swiper')) {
-        new Swiper('.gallery-swiper', {
-            slidesPerView: 1,
-            spaceBetween: 16,
-            loop: true,
-            navigation: { prevEl: '.gallery-prev', nextEl: '.gallery-next' },
-            pagination: { el: '.gallery-pagination', clickable: true, dynamicBullets: true },
-            breakpoints: { 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+        var galleryTimerRaf = null;
+        function startGalleryTimerBar(swiper) {
+            var container = swiper.el.closest('.relative');
+            var fill = container ? container.querySelector('.gallery-timer-fill') : null;
+            if (!fill) return;
+            if (galleryTimerRaf) cancelAnimationFrame(galleryTimerRaf);
+            var delay = (swiper.params.autoplay && swiper.params.autoplay.delay) ? swiper.params.autoplay.delay : 4000;
+            var start = performance.now();
+            fill.style.width = '0%';
+            function update() {
+                var elapsed = performance.now() - start;
+                var percent = Math.min(100, (elapsed / delay) * 100);
+                fill.style.width = percent + '%';
+                if (percent < 100) galleryTimerRaf = requestAnimationFrame(update);
+            }
+            galleryTimerRaf = requestAnimationFrame(update);
+        }
+        document.querySelectorAll('.gallery-swiper').forEach(function (el) {
+            new Swiper(el, {
+                slidesPerView: 1,
+                spaceBetween: 0,
+                loop: true,
+                autoplay: { delay: 4000, disableOnInteraction: false },
+                speed: 800,
+                navigation: { prevEl: el.querySelector('.gallery-prev'), nextEl: el.querySelector('.gallery-next') },
+                pagination: { el: el.querySelector('.gallery-pagination'), clickable: true },
+                on: {
+                    init: function () { startGalleryTimerBar(this); },
+                    slideChange: function () { startGalleryTimerBar(this); }
+                }
+            });
         });
     }
 
