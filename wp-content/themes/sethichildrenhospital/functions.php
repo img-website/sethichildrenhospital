@@ -22,7 +22,8 @@ require_once SCH_THEME_DIR . '/inc/widgets.php';
 // ── Navigation ──
 require_once SCH_THEME_DIR . '/inc/class-sch-walker-nav.php';
 
-// ── Contact form (wp_mail / WP Mail SMTP) ──
+// ── Contact form (wp_mail / WP Mail SMTP) & Leads CPT ──
+require_once SCH_THEME_DIR . '/inc/post-type-leads.php';
 require_once SCH_THEME_DIR . '/inc/contact-form-handler.php';
 
 // ── ACF Options & Fields ──
