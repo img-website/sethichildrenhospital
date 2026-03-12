@@ -1,16 +1,13 @@
 <?php
 /**
- * 404 Error Page Template
+ * 404 Template
+ * Content is dynamic from Sethi Hospital → 404 Page in admin.
  */
 
-get_header(); ?>
-
-<main id="main-content">
-    <section class="error-404">
-        <h1>404 - Page Not Found</h1>
-        <p>The page you are looking for does not exist.</p>
-        <a href="<?php echo esc_url(home_url('/')); ?>">Go Back Home</a>
-    </section>
+get_header();
+?>
+<main id="main-content" class="page-404">
+    <?php get_template_part('template-parts/404/content'); ?>
 </main>
-
-<?php get_footer(); ?>
+<?php
+get_footer();

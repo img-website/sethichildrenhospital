@@ -206,7 +206,7 @@ $social_links    = sch_get_field('footer_social_links', 'option');
                         <?php echo esc_html($copyright); ?>
                     </p>
                     <p class="text-slate-300 text-xs mt-1">
-                        Designed & Developed By: <span class="text-slate-400"><?php echo esc_html($dev_text); ?></span>
+                        Designed & Developed with ❤️ by: <span class="text-slate-400"><?php echo esc_html($dev_text); ?></span>
                     </p>
                 </div>
                 

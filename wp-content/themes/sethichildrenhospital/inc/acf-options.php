@@ -41,5 +41,15 @@ function sch_register_acf_options_pages() {
         'update_button' => __('Save Footer', 'sethichildrenhospital'),
         'updated_message' => __('Footer settings saved.', 'sethichildrenhospital'),
     ));
+
+    acf_add_options_page(array(
+        'page_title'    => __('404 Page Settings', 'sethichildrenhospital'),
+        'menu_title'    => __('404 Page', 'sethichildrenhospital'),
+        'menu_slug'     => 'sch-404-settings',
+        'parent_slug'   => $parent['menu_slug'],
+        'capability'    => 'manage_options',
+        'update_button' => __('Save 404 Page', 'sethichildrenhospital'),
+        'updated_message' => __('404 page settings saved.', 'sethichildrenhospital'),
+    ));
 }
 add_action('acf/init', 'sch_register_acf_options_pages');
