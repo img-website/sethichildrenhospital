@@ -130,6 +130,25 @@ function sch_handle_contact_form_submit() {
         return;
     }
 
+    // Save lead to database (custom post type: sch_lead).
+    $lead_title = $name ? sprintf(__('Lead from %s', 'sethichildrenhospital'), $name) : __('Contact form lead', 'sethichildrenhospital');
+    $lead_args  = array(
+        'post_type'   => 'sch_lead',
+        'post_status' => 'publish',
+        'post_title'  => $lead_title,
+        'post_content'=> $message,
+    );
+    $lead_id = wp_insert_post($lead_args, true);
+    if (!is_wp_error($lead_id)) {
+        update_post_meta($lead_id, 'sch_lead_name', $name);
+        update_post_meta($lead_id, 'sch_lead_email', $email);
+        update_post_meta($lead_id, 'sch_lead_phone', $phone);
+        update_post_meta($lead_id, 'sch_lead_subject', $subject);
+        update_post_meta($lead_id, 'sch_lead_referrer', wp_get_referer());
+        update_post_meta($lead_id, 'sch_lead_ip', isset($_SERVER['REMOTE_ADDR']) ? sanitize_text_field(wp_unslash($_SERVER['REMOTE_ADDR'])) : '');
+        update_post_meta($lead_id, 'sch_lead_user_agent', isset($_SERVER['HTTP_USER_AGENT']) ? sanitize_textarea_field(wp_unslash($_SERVER['HTTP_USER_AGENT'])) : '');
+    }
+
     $to   = get_option('admin_email');
     $subj = $subject ? sprintf(/* translators: 1: site name, 2: subject */ __('[%1$s] Contact: %2$s', 'sethichildrenhospital'), get_bloginfo('name'), $subject) : sprintf(/* translators: %s: site name */ __('[%s] Contact form submission', 'sethichildrenhospital'), get_bloginfo('name'));
     $body = sch_get_contact_email_html($name, $email, $phone, $subject, $message);
