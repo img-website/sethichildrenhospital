@@ -42,7 +42,7 @@ if ($flash && is_array($flash)) {
                     </h2>
                     <?php endif; ?>
 
-                    <form action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="space-y-4 md:space-y-5">
+                    <form id="sch-contact-form" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" method="post" class="space-y-4 md:space-y-5">
                         <input type="hidden" name="action" value="sch_contact_form">
                         <?php wp_nonce_field('sch_contact_form', 'sch_contact_nonce'); ?>
                         <div>
@@ -51,7 +51,7 @@ if ($flash && is_array($flash)) {
                         </div>
                         <div>
                             <label class="block text-sm md:text-base font-medium text-gray-700 mb-1.5">Your Email <span class="text-primary">*</span></label>
-                            <input type="email" name="sch_contact_email" required class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm md:text-base" placeholder="Enter your email address">
+                            <input type="email" name="sch_contact_email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}" maxlength="100" title="<?php esc_attr_e('Please enter a valid email address (e.g. name@example.com)', 'sethichildrenhospital'); ?>" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm md:text-base" placeholder="Enter your email address">
                         </div>
                         <div>
                             <label class="block text-sm md:text-base font-medium text-gray-700 mb-1.5">Subject</label>
@@ -59,16 +59,25 @@ if ($flash && is_array($flash)) {
                         </div>
                         <div>
                             <label class="block text-sm md:text-base font-medium text-gray-700 mb-1.5">Contact No.</label>
-                            <input type="tel" name="sch_contact_phone" pattern="[0-9]{10}" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm md:text-base" placeholder="Enter 10-digit mobile number">
+                            <input type="tel" name="sch_contact_phone" inputmode="numeric" pattern="[0-9]{10}" maxlength="10" autocomplete="tel" title="<?php esc_attr_e('Enter 10 digits only (numbers only)', 'sethichildrenhospital'); ?>" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm md:text-base sch-contact-phone" placeholder="Enter 10-digit mobile number">
                         </div>
                         <div>
                             <label class="block text-sm md:text-base font-medium text-gray-700 mb-1.5">Your Message</label>
                             <textarea name="sch_contact_message" rows="5" class="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-primary/20 focus:border-primary transition-all outline-none text-sm md:text-base resize-none" placeholder="Write your message here..."></textarea>
                         </div>
                         <div>
-                            <button type="submit" name="send" class="group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-3.5 rounded-xl text-sm md:text-base font-semibold hover:shadow-xl transition-all hover:-translate-y-0.5 w-full md:w-auto">
-                                <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
-                                <?php echo esc_html($form_submit ?: 'Send Message'); ?>
+                            <button type="submit" name="send" class="sch-contact-submit group inline-flex items-center justify-center gap-2 bg-gradient-to-r from-primary to-secondary text-white px-8 py-3.5 rounded-xl text-sm md:text-base font-semibold hover:shadow-xl transition-all hover:-translate-y-0.5 w-full md:w-auto disabled:opacity-75 disabled:pointer-events-none disabled:cursor-not-allowed">
+                                <span class="sch-contact-btn-text inline-flex items-center gap-2">
+                                    <i data-lucide="send" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                                    <?php echo esc_html($form_submit ?: 'Send Message'); ?>
+                                </span>
+                                <span class="sch-contact-btn-loader hidden inline-flex items-center gap-2">
+                                    <svg class="animate-spin w-4 h-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" aria-hidden="true">
+                                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                    </svg>
+                                    <span><?php esc_html_e('Sending…', 'sethichildrenhospital'); ?></span>
+                                </span>
                             </button>
                         </div>
                     </form>

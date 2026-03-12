@@ -42,6 +42,44 @@
         });
     }
 
+    // Contact form: loader + disable only submit button on submit (do not disable inputs – disabled fields are not sent with the form)
+    var contactForm = document.getElementById('sch-contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function () {
+            if (contactForm.classList.contains('is-submitting')) return;
+            contactForm.classList.add('is-submitting');
+            var submitBtn = contactForm.querySelector('.sch-contact-submit');
+            var btnText = contactForm.querySelector('.sch-contact-btn-text');
+            var btnLoader = contactForm.querySelector('.sch-contact-btn-loader');
+            if (submitBtn) submitBtn.disabled = true;
+            if (btnText) btnText.classList.add('hidden');
+            if (btnLoader) btnLoader.classList.remove('hidden');
+        });
+
+        // Contact No.: allow only digits (block alphabets and other non-numeric input)
+        var phoneInput = contactForm.querySelector('.sch-contact-phone');
+        if (phoneInput) {
+            phoneInput.addEventListener('keypress', function (e) {
+                if (e.key !== 'Backspace' && e.key !== 'Tab' && (e.key < '0' || e.key > '9')) {
+                    e.preventDefault();
+                }
+            });
+            phoneInput.addEventListener('input', function () {
+                this.value = this.value.replace(/\D/g, '');
+                if (this.value.length > 10) this.value = this.value.slice(0, 10);
+            });
+            phoneInput.addEventListener('paste', function (e) {
+                var pasted = (e.clipboardData || window.clipboardData).getData('text');
+                var digits = pasted.replace(/\D/g, '').slice(0, 10);
+                e.preventDefault();
+                var start = this.selectionStart;
+                var end = this.selectionEnd;
+                this.value = this.value.slice(0, start) + digits + this.value.slice(end);
+                this.setSelectionRange(start + digits.length, start + digits.length);
+            });
+        }
+    }
+
     // Hero Swiper
     if (typeof Swiper !== 'undefined' && document.querySelector('.hero-swiper')) {
         var heroSwiper = new Swiper('.hero-swiper', {
