@@ -104,9 +104,10 @@
         });
     }
 
-    // Team Swiper
+    // Team Swiper (Home & About Us)
     if (typeof Swiper !== 'undefined' && document.querySelector('.team-swiper')) {
         new Swiper('.team-swiper', {
+            loop: true,
             slidesPerView: 2,
             spaceBetween: 16,
             navigation: { prevEl: '.team-prev', nextEl: '.team-next' },

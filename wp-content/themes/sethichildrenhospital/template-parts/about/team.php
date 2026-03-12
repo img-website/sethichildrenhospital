@@ -1,13 +1,18 @@
 <?php
 /**
  * About Us – Team / Specialists Swiper
+ * Uses same data as Home page (front page) team section. Edit team in Home page settings.
  */
 
-$badge     = sch_get_field('about_team_badge');
-$heading   = sch_get_field('about_team_heading');
-$heading_hl = sch_get_field('about_team_heading_highlight');
-$desc      = sch_get_field('about_team_description');
-$members   = sch_get_field('about_team_members');
+$front_page_id = (int) get_option('page_on_front');
+if (!$front_page_id) {
+    return;
+}
+$badge      = sch_get_field('team_badge', $front_page_id);
+$heading    = sch_get_field('team_heading', $front_page_id);
+$heading_hl = sch_get_field('team_heading_highlight', $front_page_id);
+$desc       = sch_get_field('team_description', $front_page_id);
+$members    = sch_get_field('team_members', $front_page_id);
 ?>
 
 <section class="overflow-hidden py-12 md:py-16 bg-white" data-aos="fade-up" data-aos-duration="700">
@@ -35,7 +40,7 @@ $members   = sch_get_field('about_team_members');
                         $name = $m['name'] ?? '';
                         $spec = $m['specialization'] ?? '';
                         $photo = $m['photo'] ?? '';
-                        if (!$photo) $photo = sch_img('doctorPlaceholder.webp');
+                        if (!$photo) $photo = function_exists('sch_img') ? sch_img('doctorPlaceholder.webp') : '';
                     ?>
                     <div class="swiper-slide">
                         <div class="text-center group">

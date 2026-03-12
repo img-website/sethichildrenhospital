@@ -214,26 +214,6 @@ function sch_register_about_fields() {
             array('key' => 'field_sch_about_appt_heading_icon', 'label' => 'Heading Icon (Lucide)', 'name' => 'about_appt_heading_icon', 'type' => 'text', 'default_value' => 'phone'),
             array('key' => 'field_sch_about_appt_btn_link', 'label' => 'Button Link', 'name' => 'about_appt_btn_link', 'type' => 'link', 'return_format' => 'array'),
             array('key' => 'field_sch_about_appt_btn_icon', 'label' => 'Button Icon (Lucide)', 'name' => 'about_appt_btn_icon', 'type' => 'text', 'default_value' => 'calendar-check'),
-
-            // ── Tab: Team ──
-            array('key' => 'field_sch_about_tab_team', 'label' => 'Team', 'type' => 'tab'),
-            array('key' => 'field_sch_about_team_badge', 'label' => 'Badge', 'name' => 'about_team_badge', 'type' => 'text', 'default_value' => 'Our Experts', 'wrapper' => array('width' => '50')),
-            array('key' => 'field_sch_about_team_heading', 'label' => 'Heading', 'name' => 'about_team_heading', 'type' => 'text', 'default_value' => 'Meet Our', 'wrapper' => array('width' => '50')),
-            array('key' => 'field_sch_about_team_heading_hl', 'label' => 'Heading Highlight', 'name' => 'about_team_heading_highlight', 'type' => 'text', 'default_value' => 'Specialists'),
-            array('key' => 'field_sch_about_team_desc', 'label' => 'Description', 'name' => 'about_team_description', 'type' => 'textarea', 'rows' => 2),
-            array(
-                'key'          => 'field_sch_about_team_members',
-                'label'        => 'Team Members',
-                'name'         => 'about_team_members',
-                'type'         => 'repeater',
-                'layout'       => 'block',
-                'button_label' => 'Add Member',
-                'sub_fields'   => array(
-                    array('key' => 'field_sch_about_member_name', 'label' => 'Name (without Dr.)', 'name' => 'name', 'type' => 'text'),
-                    array('key' => 'field_sch_about_member_spec', 'label' => 'Specialization', 'name' => 'specialization', 'type' => 'text'),
-                    array('key' => 'field_sch_about_member_photo', 'label' => 'Photo', 'name' => 'photo', 'type' => 'image', 'return_format' => 'url', 'preview_size' => 'thumbnail'),
-                ),
-            ),
         ),
         'location' => array(
             array(
